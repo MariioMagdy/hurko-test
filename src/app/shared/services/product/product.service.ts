@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  commonURL="http://localhost:3000"
+  commonURL="https://test-shopapp.herokuapp.com"
 
   constructor(private _http:HttpClient) { }
 

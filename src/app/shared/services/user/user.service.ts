@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   public token =""
   public isAuth=false
-  commonURL="http://localhost:3000"
+  commonURL="https://test-shopapp.herokuapp.com"
   constructor(private _http:HttpClient) { }
 
   /***Post user data to API */
