@@ -1,0 +1,112 @@
+<section class="signin-page account">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 m-auto">
+        <div class="block text-center">
+          <a routerLink="/">
+            <span class="display-4">AVIATO</span>
+          </a>
+          <h2 class="text-center">Create Your Account</h2>
+
+
+          <form class="text-left clearfix" [formGroup]="myForm" (ngSubmit)="handleSubmitForm()">
+            <div class="form-group">
+              <input type="text" class="form-control" name="fname" formControlName="fname" placeholder="First Name">
+            </div>
+             <div *ngIf="myForm.controls.fname?.invalid && (myForm.controls.fname?.dirty || myForm.controls.fname?.touched) " class="alert alert-danger">
+              <div *ngIf="myForm.controls.username.errors?.required">
+                <span>First Name is required</span>
+              </div>
+
+              <div *ngIf="myForm.controls.fname.errors?.minlength">
+               <span>Min Lenght for Name is 5 and actualLength is {{myForm.controls.fname.errors?.minlength.actualLength}} </span>
+             </div>
+             <div *ngIf="myForm.controls.fname.errors?.maxlength">
+              <span>Max Lenght for Name is 25 and actualLength is {{myForm.controls.fname.errors?.maxlength.actualLength}} </span>
+           </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="lname" formControlName="lname" placeholder="Last Name">
+            </div>
+            <div *ngIf="myForm.controls.lname?.invalid && (myForm.controls.lname?.dirty || myForm.controls.lname?.touched) " class="alert alert-danger">
+              <div *ngIf="myForm.controls.username.errors?.required">
+                <span>Last Name is required</span>
+              </div>
+
+              <div *ngIf="myForm.controls.lname.errors?.minlength">
+               <span>Min Lenght for Name is 5 and actualLength is {{myForm.controls.lname.errors?.minlength.actualLength}} </span>
+             </div>
+             <div *ngIf="myForm.controls.lname.errors?.maxlength">
+              <span>Max Lenght for Name is 25 and actualLength is {{myForm.controls.lname.errors?.maxlength.actualLength}} </span>
+           </div>
+            </div>
+
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" formControlName="username"  placeholder="User Name">
+            </div>
+            <div *ngIf="myForm.controls.username?.invalid && (myForm.controls.username?.dirty || myForm.controls.username?.touched) " class="alert alert-danger">
+              <div *ngIf="myForm.controls.username.errors?.required">
+                <span>User Name is required</span>
+              </div>
+              <div *ngIf="myForm.controls.username.errors?.minlength">
+               <span>Min Lenght for Name is 5 and actualLength is {{myForm.controls.username.errors?.minlength.actualLength}} </span>
+             </div>
+             <div *ngIf="myForm.controls.username.errors?.maxlength">
+              <span>Max Lenght for Name is 25 and actualLength is {{myForm.controls.username.errors?.maxlength.actualLength}} </span>
+           </div>
+            </div>
+
+
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" formControlName="email"  placeholder="Email">
+            </div>
+
+            <div *ngIf="myForm.controls.email?.invalid && (myForm.controls.email?.dirty || myForm.controls.email?.touched) " class="alert alert-danger">
+              <div *ngIf="myForm.controls.email.errors?.required">
+                 Email is Required
+              </div>
+              <div *ngIf="myForm.controls.email.errors?.email">
+               <span>Please write a valid Email</span>
+             </div>
+             <div *ngIf="myForm.controls.email.errors?.maxlength">
+              <span>Max Lenght for Name is 30 and actualLength is {{myForm.controls.username.errors?.maxlength.actualLength}} </span>
+            </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password"  formControlName="password" placeholder="Password">
+            </div>
+              <div *ngIf="myForm.controls.password?.invalid && (myForm.controls.password?.dirty || myForm.controls.password?.touched) " class="alert alert-danger">
+                <div *ngIf="myForm.controls.password.errors?.required">
+                  Password Requried
+                </div>
+                <div *ngIf="myForm.controls.password.errors?.maxlength">
+                  MaxLength is 20
+               </div>
+               <div *ngIf="myForm.controls.password.errors?.pattern">
+                <ul>
+                  <li>Password must contain at least Two digit [0-9].</li>
+                  <li>Password must contain at least Three lowercase Latin character [a-z].</li>
+                  <li>Password must contain at least Two uppercase Latin character [A-Z].</li>
+                  <li>Password must contain at least one special character like !@#$&*.</li>
+                  <li>Password must contain a length of at least 8 characters and a maximum of 20 characters.</li>
+                </ul>
+             </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="role_id"  formControlName="role_id" hidden>
+              </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-main text-center" [disabled]="myForm.invalid">Submit</button>
+            </div>
+          </form>
+          <p class="pt-3">Already hava an account ?<a routerLink="/login"> Login</a></p>
+          <p><a routerLink="/forgetpassword"> Forgot your password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
